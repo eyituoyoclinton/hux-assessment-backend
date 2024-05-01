@@ -18,6 +18,7 @@ export default class auths {
   }
 
   async createAccount() {
+    //creating a new account
     if (this.method !== "post") {
       return helpers.outputError(this.res, 405);
     }
@@ -109,6 +110,7 @@ export default class auths {
 
     //hash password
     let passwordHash = bcrypt.hashSync(password, 10);
+    //inserting the data into database
     let createUser: any = await userModel
       .create({
         firstname,
@@ -130,7 +132,7 @@ export default class auths {
         "Sorry we cannot create this account at this moment"
       );
     }
-
+    //preparing the payload
     createUser = createUser.toObject();
     let JWTData: UserDataType = {
       firstname: createUser.firstname,
@@ -138,6 +140,7 @@ export default class auths {
       email: createUser.email,
       user_id: createUser._id,
     };
+    //signing the jwt
     let signinToken = JWT.sign(JWTData, fileConfig.config.jwtSecret, {
       expiresIn: "24hr",
     });
@@ -151,6 +154,8 @@ export default class auths {
   }
 
   async login() {
+    //this requires password and username
+    //username can be email or mobile number
     if (this.method !== "post") {
       return helpers.outputError(this.res, 405);
     }
@@ -160,7 +165,7 @@ export default class auths {
     if (!username) {
       return helpers.outputError(this.res, null, "email/mobile is required");
     }
-
+    //validating the username
     if (validator.isNumeric(username)) {
       if (username.length < 10 || username.length > 13) {
         return helpers.outputError(this.res, null, "mobile is invalid");
@@ -187,16 +192,19 @@ export default class auths {
     if (!checkUser) {
       return helpers.outputError(this.res, null, "Account not found");
     }
+    //comparing the password submitted with what we have in the database
     if (!bcrypt.compareSync(password, checkUser.password)) {
       return helpers.outputError(this.res, null, "Invalid account details");
     }
 
+    //preparing the payload
     let JWTData: UserDataType = {
       firstname: checkUser.firstname,
       lastname: checkUser.lastname,
       email: checkUser.email,
       user_id: checkUser._id,
     };
+    //   signing the jwt
     let signinToken = JWT.sign(JWTData, fileConfig.config.jwtSecret, {
       expiresIn: "24hr",
     });

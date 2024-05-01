@@ -1,7 +1,7 @@
 import express from "express";
-import helpers from "./src/utils/helpers";
-import { fileConfig } from "./src/utils/file-config";
-import { isAuthenticatedUser } from "./src/middleware/auth-middleware";
+import helpers from "./utils/helpers";
+import { fileConfig } from "./utils/file-config";
+import { isAuthenticatedUser } from "./middleware/auth-middleware";
 
 export default (req: express.Request, res: express.Response) => {
   //sanitize the url
@@ -19,15 +19,15 @@ export default (req: express.Request, res: express.Response) => {
   let userData: any = {};
   if (!fileConfig.no_auth_controller.includes(controllerName)) {
     userData = isAuthenticatedUser(req.headers.authorization as string);
-    //  console.log(userData);
     if (!userData || !userData.user_id) {
       return helpers.outputError(res, 401);
     }
   }
 
   try {
-    controller = require("./src/controllers/" + controllerName).default;
+    controller = require("./controllers/" + controllerName).default;
   } catch (e) {
+    //  console.log(e);
     return helpers.outputError(res, 404);
   }
   //initialize the class
