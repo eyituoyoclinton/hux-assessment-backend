@@ -24,7 +24,6 @@ const contact = new Schema(
     mobile: {
       type: String,
       required: true,
-      unique: true,
       maxLength: 13,
     },
   },
