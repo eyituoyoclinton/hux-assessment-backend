@@ -18,60 +18,60 @@ Your base url will be [http://localhost:3000].
 
 ### API ROUTES BASEURL
 
-# `http://localhost:3000/api`
+### `http://localhost:3000/api`
 
-# CREATE AN ACCOUNT {POST REQUEST}
+### CREATE AN ACCOUNT {POST REQUEST}
 
-# `http://localhost:3000/api/auth/create-account`
+### `http://localhost:3000/api/auth/create-account`
 
-# The create account requires
+### The create account requires
 
 ```json
 { "firstname": "", "lastname": "", "email": "", "mobile": "", "password": "" }
 ```
 
-# LOGIN AN ACCOUNT {POST REQUEST}
+### LOGIN AN ACCOUNT {POST REQUEST}
 
-# `http://localhost:3000/api/auth/login`
+### `http://localhost:3000/api/auth/login`
 
 ```json
 { "username": "mobile/email", "password": "" }
 ```
 
-# CREATE A CONTACT {POST REQUEST}
+### CREATE A CONTACT {POST REQUEST}
 
-# `http://localhost:3000/api/users/contact`
+### `http://localhost:3000/api/users/contact`
 
-# This is an authenticated route and requires Authorization header as {Bearer token}
-
-```json
-{ "firstname": "", "lastname": "", "mobile": "" }
-```
-
-# UPDATE A CONTACT {PATCH REQUEST}
-
-# `http://localhost:3000/api/users/contact/:CONNTACTID`
-
-# This is an authenticated route and requires Authorization header as {Bearer token}
+### This is an authenticated route and requires Authorization header as {Bearer token}
 
 ```json
 { "firstname": "", "lastname": "", "mobile": "" }
 ```
 
-# DELETE A CONTACT {DELETE REQUEST}
+### UPDATE A CONTACT {PATCH REQUEST}
 
-# `http://localhost:3000/api/users/contact/:CONNTACTID`
+### `http://localhost:3000/api/users/contact/:CONNTACTID`
 
-# This is an authenticated route and requires Authorization header as {Bearer token}
+### This is an authenticated route and requires Authorization header as {Bearer token}
 
-# GET A SINGLE CONTACT {GET REQUEST}
+```json
+{ "firstname": "", "lastname": "", "mobile": "" }
+```
 
-# `http://localhost:3000/api/users/contact/:CONNTACTID`
+### DELETE A CONTACT {DELETE REQUEST}
 
-# This is an authenticated route and requires Authorization header as {Bearer token}
+### `http://localhost:3000/api/users/contact/:CONNTACTID`
 
-# GET ALL CONTACT {GET REQUEST}
+### This is an authenticated route and requires Authorization header as {Bearer token}
 
-# `http://localhost:3000/api/users/contact`
+### GET A SINGLE CONTACT {GET REQUEST}
 
-# This is an authenticated route and requires Authorization header as {Bearer token}
+### `http://localhost:3000/api/users/contact/:CONNTACTID`
+
+### This is an authenticated route and requires Authorization header as {Bearer token}
+
+### GET ALL CONTACT {GET REQUEST}
+
+### `http://localhost:3000/api/users/contact`
+
+### This is an authenticated route and requires Authorization header as {Bearer token}
