@@ -31,7 +31,7 @@ export default class helpers {
         break;
       case 401:
         outputObj = {
-          message: message || " Unauthorized",
+          message: message || "Unauthorized",
         };
         break;
       case 404:

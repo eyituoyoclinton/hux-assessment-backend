@@ -22,7 +22,7 @@ Your base url will be [http://localhost:3000].
 
 ### CREATE AN ACCOUNT {POST REQUEST}
 
-### `http://localhost:3000/api/auth/create-account`
+### `http://localhost:3000/api/auths/create-account`
 
 ### The create account requires
 
@@ -32,7 +32,7 @@ Your base url will be [http://localhost:3000].
 
 ### LOGIN AN ACCOUNT {POST REQUEST}
 
-### `http://localhost:3000/api/auth/login`
+### `http://localhost:3000/api/auths/login`
 
 ```json
 { "username": "mobile/email", "password": "" }

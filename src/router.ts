@@ -20,7 +20,7 @@ export default (req: express.Request, res: express.Response) => {
   if (!fileConfig.no_auth_controller.includes(controllerName)) {
     userData = isAuthenticatedUser(req.headers.authorization as string);
     if (!userData || !userData.user_id) {
-      return helpers.outputError(res, 401);
+      return helpers.outputError(res, 401, "its here");
     }
   }
 

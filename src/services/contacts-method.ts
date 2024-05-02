@@ -102,7 +102,8 @@ export default class contactMethod {
     delete createContact.__v;
     delete createContact._id;
 
-    return helpers.outputSuccess(res, createContact);
+    return helpers.outputSuccess(res, "Contact created");
+    //  return helpers.outputSuccess(res, createContact);
   }
 
   //function to update a contact using the contact id
@@ -212,7 +213,8 @@ export default class contactMethod {
     delete updateContact.__v;
     delete updateContact._id;
 
-    return helpers.outputSuccess(res, updateContact);
+    return helpers.outputSuccess(res, "contact updated");
+    //  return helpers.outputSuccess(res, updateContact);
   }
 
   //function to fetch all all and single contact
