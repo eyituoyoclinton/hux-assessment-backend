@@ -9,7 +9,7 @@
       "start": "node build/index.js",
       "test": "jest",
       "post-build": "copyfiles src/**/*.html build/",
-      "setup": "npm install -D rimraf ts-node"
+      "setup": "npm i && npm install -D rimraf ts-node"
    },
    "author": "",
    "license": "ISC",
