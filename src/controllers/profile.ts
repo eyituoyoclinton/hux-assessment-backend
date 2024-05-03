@@ -117,7 +117,7 @@ export default class users {
       console.log(updatePassword.error);
       return helpers.outputError(this.res, 500);
     }
-    //check it the Password was updated or not
+    //check it the Password was updated
     if (!updatePassword) {
       return helpers.outputError(
         this.res,
